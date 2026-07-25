@@ -2,6 +2,7 @@
 using CsBasics.data;
 using CsBasics.repositories;
 using CsBasics.Services;
+using CsBasics.UI;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CsBasics
@@ -15,16 +16,13 @@ namespace CsBasics
             services.AddSingleton<IStudentRepository, StudentRepository>();
             services.AddTransient<IStudentService, StudentService>();
 
+            // UI registrations — add new IConsoleUI implementations here
+            services.AddTransient<IConsoleUI, StudentListUI>();
+            services.AddTransient<ConsoleMenu>();
+
             var serviceProvider = services.BuildServiceProvider();
 
-            var studentService = serviceProvider.GetRequiredService<IStudentService>();
-
-            Console.WriteLine("The list of students:");
-            foreach (var student in studentService.GetAllStudents())
-            {
-                Console.WriteLine($"Name: {student.Name}, Age: {student.Age}, Grade: {student.Grade}, Address: {student.Address}");
-            }
-            
+            serviceProvider.GetRequiredService<ConsoleMenu>().Launch();
         }
     }
 }
