@@ -3,6 +3,7 @@ using CsBasics.data;
 using CsBasics.repositories;
 using CsBasics.Services;
 using CsBasics.UI;
+using CsBasics.UI.CSharp10;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CsBasics
@@ -18,7 +19,11 @@ namespace CsBasics
 
             // UI registrations — add new IConsoleUI implementations here
             services.AddTransient<IConsoleUI, StudentListUI>();
+            services.AddTransient<IConsoleUI, CSharp10UI>();
             services.AddTransient<ConsoleMenu>();
+
+            // CSharp10UI demo registrations — add new ICSharp10Demo implementations here
+            services.AddTransient<ICSharp10Demo, GarbageCollectionDemo>();
 
             var serviceProvider = services.BuildServiceProvider();
 
