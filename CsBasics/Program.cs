@@ -26,6 +26,7 @@ namespace CsBasics
             services.AddTransient<ICSharp10Demo, GarbageCollectionDemo>();
             services.AddTransient<ICSharp10Demo, DelegatesDemo>();
             services.AddTransient<ICSharp10Demo, EventsDemo>();
+            services.AddTransient<ICSharp10Demo, PropertiesDemo>();
 
             var serviceProvider = services.BuildServiceProvider();
 

@@ -13,6 +13,8 @@ namespace CsBasics.UI.CSharp10
             _studentService = studentService;
         }
 
+        public string Title => "Garbage Collection (GC)";
+
         public void Run()
         {
             Console.WriteLine("C# 1.0: Garbage Collection (GC)");

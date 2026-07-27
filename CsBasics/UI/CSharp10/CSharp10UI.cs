@@ -15,9 +15,27 @@ namespace CsBasics.UI.CSharp10
 
         public void Run()
         {
-            foreach (var demo in _demos)
+            var demoList = _demos.ToList();
+
+            while (true)
             {
-                demo.Run();
+                Console.WriteLine("\nC# 1.0 Features Menu");
+                for (int i = 0; i < demoList.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {demoList[i].Title}");
+                }
+                Console.WriteLine("0. Back to Main Menu");
+                Console.Write("\nSelect an option: ");
+
+                var input = Console.ReadLine();
+                if (!int.TryParse(input, out int choice)) continue;
+
+                if (choice == 0) break;
+                if (choice >= 1 && choice <= demoList.Count)
+                {
+                    Console.WriteLine();
+                    demoList[choice - 1].Run();
+                }
             }
         }
     }

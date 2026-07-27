@@ -12,6 +12,8 @@ namespace CsBasics.UI.CSharp10
             _studentService = studentService;
         }
 
+        public string Title => "Events";
+
         public void Run()
         {
             Console.WriteLine("C# 1.0: Events");
