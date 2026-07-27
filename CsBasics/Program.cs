@@ -24,6 +24,8 @@ namespace CsBasics
 
             // CSharp10UI demo registrations — add new ICSharp10Demo implementations here
             services.AddTransient<ICSharp10Demo, GarbageCollectionDemo>();
+            services.AddTransient<ICSharp10Demo, DelegatesDemo>();
+            services.AddTransient<ICSharp10Demo, EventsDemo>();
 
             var serviceProvider = services.BuildServiceProvider();
 
